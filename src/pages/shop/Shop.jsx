@@ -1,8 +1,17 @@
 import React from 'react'
+import ShopSectionOne from './shopSections/shopSectioOne/ShopSectionOne'
+import ShopheroSection from './shopSections/shophero/ShopheroSection'
+import ShopSectionTwo from './shopSections/shopSectionTwo/ShopSectionTwo'
 
-function Shop() {
+
+function Shop({homedata}) {
   return (
-    <div>Shop</div>
+    <>
+    <ShopheroSection  homedata={homedata}  />
+    <ShopSectionOne/>
+    <ShopSectionTwo homedata={homedata} />
+    
+    </>
   )
 }
 

@@ -22,7 +22,7 @@ function HomeTwoSection() {
              <div className=' absolute right-0 w-[330px] py-[40px] px-[30px] '>
              <h2 className=' text-end text-[20px] font-black text-[#3D3D3D] uppercase w-[100%] '>Summer cactus
 & succulents</h2>
-<p className='text-end text-[14px] w-[100%] pt-[20px] font-normal text-[#727272]'>We are an online plant shop offering a wide range of cheap and trendy plants</p>
+<p className='text-end text-[13px] w-[100%] pt-[20px] font-normal text-[#727272]'>We are an online plant shop offering a wide range of cheap and trendy plants</p>
 <div className="btn text-end pt-[30px]" >
 <Button variant="contained"   sx={{
     width:"140px",
@@ -51,7 +51,7 @@ function HomeTwoSection() {
             
              <div className=' absolute right-0 w-[330px] py-[40px] px-[30px] '>
              <h2 className=' text-end text-[20px] font-black text-[#3D3D3D] uppercase w-[95%] '>styling trends & much more</h2>
-<p className='text-end text-[14px] w-[100%] pt-[20px] font-normal text-[#727272]'>We are an online plant shop offering a wide range of cheap and trendy plants</p>
+<p className='text-end text-[13px] w-[100%] pt-[20px] font-normal text-[#727272]'>We are an online plant shop offering a wide range of cheap and trendy plants</p>
 <div className="btn text-end pt-[30px]" >
 <Button variant="contained"   sx={{
     width:"140px",

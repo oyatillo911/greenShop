@@ -9,7 +9,7 @@ function Navbar() {
             <nav>
                 <div className='container w-[1200px] mx-auto py-[20px] flex justify-between items-center border-b-[1px] border-green-200 mb-[15px] '>
                     <div className="nav_logo">
-                        <img src="/imgs/nav_logo.svg" alt="" />
+                        <NavLink to={"/"} ><img src="/imgs/nav_logo.svg" alt="" /></NavLink>
                     </div>
                     <ul className="flex gap-[50px] ">
                         <li><NavLink to={"/"}>Home</NavLink></li>

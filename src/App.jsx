@@ -1,86 +1,142 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, data } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
 import Shop from './pages/shop/Shop'
 import { useState } from 'react';
+import Cart from './pages/shop/shopCartSections/Cart'
 
 
 function App() {
-  const [homedata,sethomedata]=useState([
-    {
-        id:1,
-        name:"Barberton Daisy",
-        price:"$119.00",
-        img:"/imgs/image_1-removebg-preview.png",
-    },
-    {
-        id:2,
-        name:"Angel Wing Begonia",
-        price:"$169.00",
-        img:"/imgs/image_2-removebg-preview.png",
-    },
-    {
-        id:3,
-        name:"African Violet",
-        price:"$199.00",
-        img:"/imgs/image_3-removebg-preview.png",
-    },
-    {
-        id:4,
-        name:"Beach Spider Lily",
-        price:"$129.00",
-        img:"/imgs/image_9-removebg-preview.png",
-    },
-    {
-        id:5,
-        name:"Blushing Bromeliad",
-        price:"$139.00",
-        img:"/imgs/image_5-removebg-preview.png",
-    },
-    {
-        id:6,
-        name:"Aluminum Plant",
-        price:"$179.00",
-        img:"/imgs/image_6-removebg-preview.png",
-    },
-    {
-        id:7,
-        name:"Bird's Nest Fern",
-        price:"$99.00",
-        img:"/imgs/image_7-removebg-preview.png",
-    },
-    {
-        id:8,
-        name:"Broadleaf Lady Palm",
-        price:"$59.00",
-        img:"/imgs/image_8-removebg-preview.png",
-    },
-    {
-        id:9,
-        name:"Chinese Evergreen",
-        price:"$39.00",
-        img:"/imgs/image_9-removebg-preview.png",
-    },
-])
-  return (
-    <>
-    <BrowserRouter>
-    <Navbar/>
+    const [homedata, sethomedata] = useState([
+        {
+            id: 1,
+            name: "Barberton Daisy",
+            price: "$119.00",
+            img: "/imgs/image_1-removebg-preview.png",
+            imgs: [
+                "/imgs/shop_hero_logo2.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 2,
+            name: "Angel Wing Begonia",
+            price: "$169.00",
+            img: "/imgs/image_2-removebg-preview.png",
+            imgs: [
+                "/imgs/image_2-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 3,
+            name: "African Violet",
+            price: "$199.00",
+            img: "/imgs/image_3-removebg-preview.png",
+            imgs: [
+                "/imgs/image_3-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 4,
+            name: "Beach Spider Lily",
+            price: "$129.00",
+            img: "/imgs/image_9-removebg-preview.png",
+            imgs: [
+                "/imgs/image_9-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 5,
+            name: "Blushing Bromeliad",
+            price: "$139.00",
+            img: "/imgs/image_5-removebg-preview.png",
+            imgs: [
+                "/imgs/image_5-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 6,
+            name: "Aluminum Plant",
+            price: "$179.00",
+            img: "/imgs/image_6-removebg-preview.png",
+            imgs: [
+                "/imgs/image_6-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 7,
+            name: "Bird's Nest Fern",
+            price: "$99.00",
+            img: "/imgs/image_7-removebg-preview.png",
+            imgs: [
+                "/imgs/image_7-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 8,
+            name: "Broadleaf Lady Palm",
+            price: "$59.00",
+            img: "/imgs/image_8-removebg-preview.png",
+            imgs: [
+                "/imgs/image_8-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        },
+        {
+            id: 9,
+            name: "Chinese Evergreen",
+            price: "$39.00",
+            img: "/imgs/image_9-removebg-preview.png",
+            imgs: [
+                "/imgs/image_9-removebg-preview.png",
+                "/imgs/shop_hero_logo1.png",
+                "/imgs/shop_hero_logo3.png",
+                "/imgs/shop_hero_logo1.png",
+            ]
+        }
+    ])
+    return (
+        <>
+            <BrowserRouter>
+                <Navbar />
 
-    <Routes>
+                <Routes>
 
-      <Route path='/' element={<Home homedata={homedata} />} />
-       <Route path='/shop' element={<Shop/>} />
-    </Routes>
+                    <Route path='/' element={<Home homedata={homedata} />} />
+                    <Route path='/shop/:id' element={<Shop homedata={homedata} />} />
+                    <Route path='/cart' element={<Cart homedata={homedata} />} />
+                </Routes>
 
-    <Footer/>
-    
-    </BrowserRouter>
-    
-    </>
-  )
+                <Footer />
+
+            </BrowserRouter>
+
+        </>
+    )
 }
 
 export default App

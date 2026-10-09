@@ -4,6 +4,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { FiSearch } from 'react-icons/fi';
 import { IoChevronForward } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 
 function HomeOneSection({homedata}) {
@@ -13,7 +14,7 @@ function HomeOneSection({homedata}) {
             <section className='pt-[30px]'>
                 <div className="container w-[1200px] mx-auto flex items-top gap-[50px]">
                     <div className="left2">
-                        <div className="left bg-[#FBFBFBFF] px-[20px]  w-[310px] ">
+                        <div className=" left bg-[#FBFBFBFF] px-[20px]  w-[310px] ">
                             <h2 className='font-bold text-[18px] pb-[15px] pt-[15px]'>Categories</h2>
                             <div className=" px-[10px] w-full flex items-start flex-col gap-[10px]">
                                 <div className="cards w-full flex justify-between items-center cursor-pointer text-[black] font-normal hover:text-[#46A358FF] font-bold text-[15px] ">  <span>House Plants</span> <span>(33)</span> </div>
@@ -106,8 +107,8 @@ function HomeOneSection({homedata}) {
                         </div>
                         <div className="box flex justify-between items-center flex-wrap">
                            {
-                            homedata.map((item) =>{
-                                return  <div className="group cursor-pointer w-[258px] hover:border-t-[1px] mb-[48px] border-solid border-[#46A358] transition-all duration-100 ease-in-out ">
+                            homedata.map((item, i ) =>{
+                                return  <Link  to={`/shop/${item.id}`} className="group cursor-pointer w-[258px] hover:border-t-[1px] mb-[48px] border-solid border-[#46A358] transition-all duration-100 ease-in-out " key={i}>
                                 <div className="logo w-[258px] h-[300px] bg-[#FBFBFB] mb-[10px]  ">
                                     <img className='w-[100%]' src= {item.img} alt="" />
                                     <div className=" hidden group-hover:flex transition-all duration-300 ease-in-out gap-[10px] justify-center items-center">
@@ -126,7 +127,7 @@ function HomeOneSection({homedata}) {
                                     <h2 className='text-[#3D3D3D] text-[16px] font-normal '>{item.name}</h2>
                                     <span className=' text-[#46A358] text-[18px] font-bold '> {item.price} </span>
                                 </div>
-                            </div>
+                            </Link>
                             })
                            }
                         </div>

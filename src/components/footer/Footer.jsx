@@ -36,8 +36,8 @@ function Footer() {
 
                 <div className=" text-start p-[25px] flex items-top justify-between bg-[#FBFBFBFF] ">
                     {
-                        footerInfo.map((item) => {
-                            return <div className="cards">
+                        footerInfo.map((item, i) => {
+                            return <div className="cards" key={i} >
                                 <img src={item.img} alt="" />
                                 <div className="w-[204px] text-start">
                                     <h2 className='text-[17px] text-[rgba(61, 61, 61, 1)] font-bold'>{item.name}</h2>
@@ -76,7 +76,7 @@ function Footer() {
                     </div>
                     <div className="cards flex items-center gap-[10px]">
                         <CiLocationOn className="text-[20px] text-[#3F9350FF] " />
-                        <span className=" w-[170px] text-[14px] font-normal " >70 West Buckingham Ave.
+                        <span className=" w-[170px] text-[13px] font-normal " >70 West Buckingham Ave.
                             Farmingdale, NY 11735</span>
                     </div>
                     <div className="cards flex items-center gap-[10px]">
@@ -116,21 +116,21 @@ function Footer() {
                     <div className="cards flex flex-col items-start">
                         <h2 className=" text-[18px] font-bold " >Social Media</h2>
                         <div className=" pt-[20px] pb-[30px] flex items-center gap-[10px] " >
-                            <div className="rounde-[4px] w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]  ">
-                                <FaFacebookF className="text-[#8EC699FF]" />
+                            <div className="  group w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]   ">
+                                <FaFacebookF className="text-[#8EC699FF]   " />
                             </div>
-                            <div className="rounde-[4px] w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]  ">
-                                <FaInstagram className="text-[#8EC699FF]" />
+                            <div className="group w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]   ">
+                                <FaInstagram className="text-[#8EC699FF]   " />
                             </div>
-                            <div className="rounde-[4px] w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]  ">
-                                <FaTwitter className="text-[#8EC699FF]" />
+                            <div className="group w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]  ">
+                                <FaTwitter className="text-[#8EC699FF]   " />
                             </div>
-                            <div className="rounde-[4px] w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]  ">
-                                <FaLinkedinIn className="text-[#8EC699FF]" />
+                            <div className="group w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]   ">
+                                <FaLinkedinIn className="text-[#8EC699FF]   " />
 
                             </div>
-                            <div className="rounde-[4px] w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]  ">
-                                <FaYoutube className="text-[#8EC699FF]" />
+                            <div className="group w-[30px] h-[30px] flex items-center justify-center border-solid border-[1px]  border-[#D7EADBFF] rounded-[4px]   ">
+                                <FaYoutube className="text-[#8EC699FF]   " />
 
                             </div>
                         </div>
