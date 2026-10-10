@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function ShopSectionTwo({homedata}) {
   const { id } = useParams();
@@ -16,13 +16,13 @@ function ShopSectionTwo({homedata}) {
    {
     homedata.filter((item) => targetId.includes(item.id) && item.id != id)
     .map((item, i) =>{
-      return        <div key={i} className="cards w-[220px] cursor-pointer ">
+      return        <div  key={i} className="cards w-[220px] cursor-pointer ">
       <div className="cards_logo bg-[#FBFBFB] w-full py-[30px] ">
         <img className='w-[90%]  mx-auto' src={item.img} alt="" />
       </div>
       <div className="info pt-[10px] text-start ">
         <h2 className=' text-[#3D3D3D] font-normal text-[15px] ' >{item.name}</h2>
-        <span className=' font-bold text-[16px] text-[#46A358] ' >{item.price}</span>
+        <span className=' font-bold text-[16px] text-[#46A358] ' >${item.price}.00</span>
       </div>
                 </div>
     })

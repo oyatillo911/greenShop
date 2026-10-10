@@ -4,10 +4,10 @@ import ShopheroSection from './shopSections/shophero/ShopheroSection'
 import ShopSectionTwo from './shopSections/shopSectionTwo/ShopSectionTwo'
 
 
-function Shop({homedata}) {
+function Shop({homedata , setCartData,cartData}) {
   return (
     <>
-    <ShopheroSection  homedata={homedata}  />
+    <ShopheroSection  homedata={homedata}  cartData={cartData} setCartData={setCartData} />
     <ShopSectionOne/>
     <ShopSectionTwo homedata={homedata} />
     

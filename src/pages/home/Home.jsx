@@ -8,7 +8,7 @@ function Home({homedata}) {
   return (
     <>
 <HomeheroSection/>
-<HomeOneSection homedata={homedata} />
+<HomeOneSection homedata={homedata}/>
 <HomeTwoSection/>
 <HomeThreeSection/>
     </>

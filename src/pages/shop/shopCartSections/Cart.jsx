@@ -2,12 +2,12 @@ import React from 'react'
 import CartHero from './cartHero/CartHero'
 import CartSection from './cartSection/CartSection'
 
-function Cart({homedata}) {
+function Cart({homedata, cartData,setCartData }) {
   return (
     <>
 
-        <CartHero/>
-        <CartSection homedata={homedata} />
+        <CartHero cartData={cartData} setCartData={setCartData} />
+        <CartSection homedata={homedata}  />
     </>
   )
 }

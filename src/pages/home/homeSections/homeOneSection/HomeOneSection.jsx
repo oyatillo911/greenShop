@@ -125,7 +125,7 @@ function HomeOneSection({homedata}) {
                                 </div>
                                 <div className="">
                                     <h2 className='text-[#3D3D3D] text-[16px] font-normal '>{item.name}</h2>
-                                    <span className=' text-[#46A358] text-[18px] font-bold '> {item.price} </span>
+                                    <span className=' text-[#46A358] text-[18px] font-bold '> ${item.price}.00 </span>
                                 </div>
                             </Link>
                             })

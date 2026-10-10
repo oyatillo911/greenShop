@@ -4,22 +4,41 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa6';
 import { FiSearch } from 'react-icons/fi'
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlineEmail } from 'react-icons/md';
-import { Link, useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 
 
-function ShopheroSection({ homedata }) {
+function ShopheroSection({ homedata, cartData, setCartData }) {
 
     const { id } = useParams()
+    const navigate = useNavigate()
     const filterInfo = homedata.find((item) => {
         return item.id == id
     })
     const [number, setnumber] = useState(1)
-    const numbericPrice = typeof filterInfo.price === 'string'
-        ? parseFloat(filterInfo.price.replace('$', '')) || 0
-        : filterInfo.price || 0;
 
-    const totalPrice = (numbericPrice * number).toFixed(2);
+
+    const totalPrice = filterInfo.price * number;
     const [mainImg, setmainImg] = useState(filterInfo.img)
+
+
+    const handleAddToCart = () => {
+        const newCartItemId = Math.floor(Math.random() * 9999);
+
+        const obj = {
+            id: newCartItemId,
+            name: filterInfo.name,
+            price: filterInfo.price,
+            number: number,
+            totalPrice: totalPrice,
+            img: filterInfo.img,
+        }
+
+        
+        setCartData([...cartData, obj]);
+
+       
+        navigate(`/cart/${newCartItemId}`);
+    };
     return (
         <>
             <div className="container  w-[1200px] mx-auto">
@@ -30,17 +49,14 @@ function ShopheroSection({ homedata }) {
                     <div className="hero_logo flex items-start gap-[30px] w-[48%]  ">
                         <div className="multi_logo flex flex-col gap-[15px] items-start ">
                             {
-                                filterInfo.imgs.map((item) => {
-                                    return <div onClick={() => {
+                                filterInfo.imgs.map((item, i) => {
+                                    return <div key={i} onClick={() => {
                                         setmainImg(item)
                                     }} className="multi w-[100px]  h-[100px] p-[10px] flex items-center justify-center cursor-pointer bg-[#FBFBFB]  rounded-[6px] ">
                                         <img className=' w-full h-full ' src={item} alt="" />
                                     </div>
                                 })
                             }
-
-
-
                         </div>
                         <div className="main_logo  w-[444px] h-[444px] bg-[#FBFBFB] flex justify-center items-center rounded-[6px] relative ">
                             <div className=" w-[30px] h-[30px] flex item-center justify-center absolute top-[13px] right-[13px] ">
@@ -53,7 +69,7 @@ function ShopheroSection({ homedata }) {
                     <div className="hero_info w-[48%]  ">
                         <h2 className=' font-bold leading-none  text-[28px] text-[#3D3D3D] '>{filterInfo.name}</h2>
                         <div className="info flex items-center justify-between">
-                            <span className=' font-bold  text-[22px] text-[#46A358] ' >{filterInfo.price}</span>
+                            <span className=' font-bold  text-[22px] text-[#46A358] ' >${filterInfo.price}.00</span>
                             <div className="  flex items-center gap-[10px]">
                                 <div className="box flex items-center gap-[3px] ">
                                     <div className="cards w-[15px] h-[15px] flex items-center justify-center ">
@@ -107,7 +123,7 @@ function ShopheroSection({ homedata }) {
                                 <h2 className='pt-[15px] pb-[5px] text-[15px] font-medium ' >Price:</h2>
 
                                 <div className="card flex items-center justify-center ">
-                                    <span className='text-[14px] font-medium text-[#46A358] ' >${totalPrice}</span>
+                                    <span className='text-[14px] font-medium text-[#46A358] ' >${totalPrice}.00</span>
                                 </div>
                             </div>
                         </div>
@@ -131,13 +147,13 @@ function ShopheroSection({ homedata }) {
                                     background: "#46A358",
                                     borderRadius: "6px"
                                 }} ><span className=' font-bold  text-[14px] text-[#FFFFFF] uppercase '   >Buy NOW</span></Button>
-                                <Link to={"/cart"} >
+                                <div >
                                     <Button variant="outlined" sx={{
                                         border: "1px solid #46A358",
                                         width: "140px",
                                         height: "40px",
-                                    }} ><span className=' text-[14px] font-bold uppercase w-full text-[#46A358] ' >Add to cart</span></Button>
-                                </Link>
+                                    }} ><span className=' text-[14px] font-bold uppercase w-full text-[#46A358] ' onClick={    handleAddToCart} >Add to cart</span></Button>
+                                </div>
                                 <div className=" w-[40px] h-[40px] flex items-center justify-center border border-[#46A358] rounded-[6px] ">
                                     <IoIosHeartEmpty className=' text-[#46A358] text-[20px]  ' />
 
